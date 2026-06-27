@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EZCollegeApp — Your Amplifier</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,500;9..144,1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  /* ── Design Tokens ── */
   :root {
     --navy-deep:   #081b33;
     --navy:        #0b2545;
@@ -40,8 +42,16 @@
     --font-flourish:'Playfair Display', Georgia, serif;
   }
 
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-  html { scroll-behavior:smooth; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: var(--ivory-cool);
     color: var(--ink-2);
@@ -51,7 +61,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── Reading progress bar ── */
   .progress {
     position: fixed;
     inset: 0 0 auto;
@@ -60,6 +69,7 @@
     background: transparent;
     pointer-events: none;
   }
+
   .progress span {
     display: block;
     width: 100%;
@@ -71,10 +81,12 @@
     transition: transform 0.1s linear;
   }
 
-  /* ── Utility ── */
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(20px,4vw,42px); }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(20px,4vw,42px);
+  }
 
-  /* ── Nav ── */
   .site-nav {
     background: var(--navy-700);
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -83,6 +95,7 @@
     z-index: 100;
     padding: max(0px, env(safe-area-inset-top)) 0 0;
   }
+
   .site-nav-inner {
     max-width: 1080px;
     margin: 0 auto;
@@ -93,16 +106,29 @@
     justify-content: space-between;
     gap: 18px;
   }
+
   .brand-mark {
     display: flex;
     align-items: center;
     text-decoration: none;
+    color: #fff;
+    font-family: var(--font-grotesk);
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
-  .brand-mark img {
-    height: 52px;
-    width: auto;
-    display: block;
+
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--amber), var(--gold));
+    color: var(--navy-deep);
+    display: grid;
+    place-items: center;
+    margin-right: 12px;
+    font-weight: 800;
   }
+
   .nav-links {
     display: flex;
     gap: 28px;
@@ -111,14 +137,17 @@
     font-size: 13px;
     font-weight: 500;
   }
+
   .nav-links a {
     color: rgba(255,255,255,0.75);
     text-decoration: none;
     transition: color 0.15s;
   }
-  .nav-links a:hover { color: #fff; }
 
-  /* ── Hero ── */
+  .nav-links a:hover {
+    color: #fff;
+  }
+
   .hero {
     position: relative;
     overflow: hidden;
@@ -130,14 +159,24 @@
     filter: saturate(1.04);
     padding: clamp(52px,9vw,96px) 0 clamp(48px,8vw,80px);
   }
-  /* star field */
-  .stars { position:absolute; inset:0; z-index:0; pointer-events:none; }
-  .stars i {
-    position:absolute; width:2px; height:2px; border-radius:999px;
-    background:rgba(255,255,255,0.86);
-    box-shadow:0 0 8px rgba(255,255,255,0.65);
-    opacity:0.55;
+
+  .stars {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
   }
+
+  .stars i {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.86);
+    box-shadow: 0 0 8px rgba(255,255,255,0.65);
+    opacity: 0.55;
+  }
+
   .hero-inner {
     position: relative;
     z-index: 1;
@@ -149,7 +188,11 @@
     gap: clamp(34px,6vw,72px);
     align-items: center;
   }
-  .hero-copy { max-width: 680px; }
+
+  .hero-copy {
+    max-width: 680px;
+  }
+
   .hero-pill {
     display: inline-flex;
     align-items: center;
@@ -166,13 +209,16 @@
     text-transform: uppercase;
     margin-bottom: 26px;
   }
+
   .hero-pill::before {
     content: "";
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     border-radius: 999px;
     background: var(--amber);
     box-shadow: 0 0 10px var(--amber);
   }
+
   .hero h1 {
     font-family: var(--font-grotesk);
     font-size: clamp(36px,7vw,68px);
@@ -182,6 +228,7 @@
     color: #fff;
     margin: 0;
   }
+
   .hero h1 .keep {
     display: block;
     font-family: var(--font-flourish);
@@ -194,6 +241,7 @@
     margin-top: 6px;
     letter-spacing: -0.03em;
   }
+
   .hero-sub {
     margin-top: 24px;
     max-width: 580px;
@@ -203,14 +251,19 @@
     font-size: clamp(16px,2vw,19px);
     line-height: 1.6;
   }
-  .hero-sub strong { color: rgba(255,255,255,0.95); font-style: normal; font-weight: 600; }
 
-  /* ── Meter (hero right column) ── */
+  .hero-sub strong {
+    color: rgba(255,255,255,0.95);
+    font-style: normal;
+    font-weight: 600;
+  }
+
   .hero-meter-wrap {
     position: relative;
     align-self: end;
     margin-top: 32px;
   }
+
   .hero-meter-frame {
     border-radius: 24px;
     padding: 28px 28px 22px;
@@ -219,6 +272,7 @@
     box-shadow: 0 28px 80px rgba(0,0,0,0.28);
     backdrop-filter: blur(16px);
   }
+
   .meter-head {
     display: flex;
     justify-content: space-between;
@@ -227,6 +281,7 @@
     gap: 8px;
     margin-bottom: 20px;
   }
+
   .meter-head .t {
     font-family: var(--font-grotesk);
     font-size: 15px;
@@ -234,19 +289,26 @@
     color: #fff;
     letter-spacing: -0.01em;
   }
+
   .meter-head .cap {
     font-family: var(--font-grotesk);
     font-size: 11px;
     color: rgba(255,255,255,0.5);
     letter-spacing: 0.06em;
   }
-  .bar { display: grid; gap: 14px; }
+
+  .bar {
+    display: grid;
+    gap: 14px;
+  }
+
   .row {
     display: grid;
     grid-template-columns: 130px 1fr 64px;
     align-items: center;
     gap: 14px;
   }
+
   .row .lbl {
     font-family: var(--font-grotesk);
     font-size: 12px;
@@ -254,6 +316,7 @@
     color: rgba(255,255,255,0.85);
     line-height: 1.35;
   }
+
   .row .lbl small {
     display: block;
     font-weight: 400;
@@ -261,6 +324,7 @@
     font-size: 11px;
     margin-top: 2px;
   }
+
   .track {
     height: 32px;
     background: rgba(255,255,255,0.08);
@@ -268,12 +332,14 @@
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.1);
   }
+
   .fill {
     height: 100%;
     width: 0;
     border-radius: 6px 0 0 6px;
     transition: width 1.3s var(--ease);
   }
+
   .fill.counselor {
     background: repeating-linear-gradient(
       45deg,
@@ -281,9 +347,11 @@
       var(--signal-soft) 9px, var(--signal-soft) 18px
     );
   }
+
   .fill.amp {
     background: linear-gradient(90deg, var(--signal) 0 26%, var(--amp) 26% 100%);
   }
+
   .row .num {
     font-family: var(--font-display);
     font-size: 24px;
@@ -292,7 +360,13 @@
     color: #fff;
     line-height: 1;
   }
-  .row .num span { font-size: 13px; color: rgba(255,255,255,0.5); font-family: var(--font-sans); }
+
+  .row .num span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-sans);
+  }
+
   .meter-foot {
     margin-top: 18px;
     font-family: var(--font-grotesk);
@@ -302,15 +376,18 @@
     padding-top: 14px;
     line-height: 1.55;
   }
-  .meter-foot b { color: var(--amber); font-weight: 600; }
 
-  /* ── Article body wrapper ── */
+  .meter-foot b {
+    color: var(--amber);
+    font-weight: 600;
+  }
+
   .article-body {
     position: relative;
     background: var(--ivory-cool);
     padding: clamp(52px,8vw,80px) 0 88px;
   }
-  /* subtle grid texture */
+
   .article-body::before {
     content: "";
     position: absolute;
@@ -322,9 +399,12 @@
     opacity: 0.38;
     pointer-events: none;
   }
-  .article-body > * { position: relative; z-index: 1; }
 
-  /* ── Section rule ── */
+  .article-body > * {
+    position: relative;
+    z-index: 1;
+  }
+
   .section-rule {
     width: 36px;
     height: 2px;
@@ -333,10 +413,10 @@
     border-radius: 2px;
   }
 
-  /* ── Section heading ── */
   .sec-head {
     margin-bottom: 36px;
   }
+
   .kick {
     font-family: var(--font-grotesk);
     font-size: 11px;
@@ -346,6 +426,7 @@
     color: var(--gold-600);
     margin-bottom: 12px;
   }
+
   .sec-head h2 {
     font-family: var(--font-grotesk);
     font-size: clamp(26px,4.2vw,40px);
@@ -354,12 +435,14 @@
     line-height: 1.1;
     color: var(--navy);
   }
+
   .sec-head h2 em {
     font-family: var(--font-flourish);
     font-style: italic;
     font-weight: 500;
     color: var(--gold-600);
   }
+
   .sec-head .lede {
     margin-top: 16px;
     max-width: 56ch;
@@ -368,7 +451,6 @@
     line-height: 1.75;
   }
 
-  /* ── Band (dark thesis) ── */
   .band {
     background: var(--navy);
     color: var(--ivory);
@@ -376,14 +458,18 @@
     position: relative;
     overflow: hidden;
   }
+
   .band::after {
     content: "";
     position: absolute;
-    right: -80px; bottom: -80px;
-    width: 360px; height: 360px;
+    right: -80px;
+    bottom: -80px;
+    width: 360px;
+    height: 360px;
     background: radial-gradient(circle, rgba(201,168,76,0.18) 0, transparent 68%);
     pointer-events: none;
   }
+
   .band h2 {
     font-family: var(--font-grotesk);
     font-weight: 600;
@@ -393,12 +479,14 @@
     max-width: 22ch;
     position: relative;
   }
+
   .band h2 em {
     font-family: var(--font-flourish);
     font-style: italic;
     font-weight: 500;
     color: var(--amber);
   }
+
   .band p {
     margin-top: 22px;
     color: rgba(248,245,240,0.72);
@@ -408,7 +496,6 @@
     position: relative;
   }
 
-  /* ── Two-truth columns ── */
   .truths {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -419,8 +506,15 @@
     box-shadow: var(--shadow-sm);
     margin-top: 48px;
   }
-  .col { padding: 38px 34px; }
-  .col:first-child { border-right: 1px solid var(--hairline); }
+
+  .col {
+    padding: 38px 34px;
+  }
+
+  .col:first-child {
+    border-right: 1px solid var(--hairline);
+  }
+
   .col .tag {
     font-family: var(--font-grotesk);
     font-size: 11px;
@@ -429,8 +523,15 @@
     text-transform: uppercase;
     margin-bottom: 14px;
   }
-  .col.keep .tag  { color: var(--signal); }
-  .col.amp-col .tag { color: var(--gold-600); }
+
+  .col.keep .tag {
+    color: var(--signal);
+  }
+
+  .col.amp-col .tag {
+    color: var(--gold-600);
+  }
+
   .col h3 {
     font-family: var(--font-grotesk);
     font-size: 22px;
@@ -440,16 +541,72 @@
     letter-spacing: -0.02em;
     color: var(--navy);
   }
-  .col p { font-size: 15px; color: var(--ink-4); line-height: 1.7; }
-  .col p + p { margin-top: 12px; }
 
-  /* ── Path cards ── */
+  .col p {
+    font-size: 15px;
+    color: var(--ink-4);
+    line-height: 1.7;
+  }
+
+  .col p + p {
+    margin-top: 12px;
+  }
+
+  .shot {
+    margin: 34px 0;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--hairline-strong);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .shot img {
+    width: 100%;
+    display: block;
+  }
+
+  .shot-caption {
+    padding: 14px 18px 16px;
+    font-family: var(--font-grotesk);
+    font-size: 13px;
+    color: var(--ink-4);
+    background: rgba(255,255,255,0.78);
+    border-top: 1px solid var(--hairline);
+    line-height: 1.55;
+  }
+
+  .shot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 34px;
+  }
+
+  .shot-card {
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--hairline-strong);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shot-card img {
+    width: 100%;
+    display: block;
+  }
+
+  .shot-card .shot-caption {
+    min-height: 62px;
+  }
+
   .cards {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 18px;
     margin-top: 36px;
   }
+
   .card {
     background: var(--surface);
     border: 1px solid var(--hairline-strong);
@@ -458,10 +615,12 @@
     box-shadow: var(--shadow-sm);
     transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
   }
+
   .card:hover {
     box-shadow: var(--shadow);
     transform: translateY(-3px);
   }
+
   .card .x {
     font-family: var(--font-flourish);
     font-size: 38px;
@@ -471,6 +630,7 @@
     line-height: 1;
     margin-bottom: 14px;
   }
+
   .card h4 {
     font-family: var(--font-grotesk);
     font-size: 17px;
@@ -479,13 +639,18 @@
     color: var(--navy);
     letter-spacing: -0.01em;
   }
-  .card p { font-size: 14px; color: var(--ink-4); line-height: 1.65; }
 
-  /* ── Math rows ── */
+  .card p {
+    font-size: 14px;
+    color: var(--ink-4);
+    line-height: 1.65;
+  }
+
   .math {
     margin-top: 44px;
     border-top: 1px solid var(--hairline-strong);
   }
+
   .mrow {
     display: grid;
     grid-template-columns: 72px 1fr;
@@ -494,6 +659,7 @@
     border-bottom: 1px solid var(--hairline);
     align-items: start;
   }
+
   .mrow .n {
     font-family: var(--font-flourish);
     font-size: clamp(36px,4vw,50px);
@@ -504,6 +670,7 @@
     letter-spacing: -0.02em;
     padding-top: 4px;
   }
+
   .mrow h4 {
     font-family: var(--font-grotesk);
     font-size: 19px;
@@ -512,12 +679,18 @@
     color: var(--navy);
     letter-spacing: -0.01em;
   }
-  .mrow p { font-size: 15px; color: var(--ink-4); max-width: 62ch; line-height: 1.7; }
 
-  /* ── Closing CTA ── */
+  .mrow p {
+    font-size: 15px;
+    color: var(--ink-4);
+    max-width: 62ch;
+    line-height: 1.7;
+  }
+
   .close-wrap {
     margin: 72px 0 40px;
   }
+
   .close {
     background:
       radial-gradient(circle at 8% 0%, rgba(254,194,142,0.22), transparent 42%),
@@ -531,14 +704,18 @@
     position: relative;
     overflow: hidden;
   }
+
   .close::after {
     content: "";
     position: absolute;
-    right: -60px; bottom: -60px;
-    width: 280px; height: 280px;
+    right: -60px;
+    bottom: -60px;
+    width: 280px;
+    height: 280px;
     background: radial-gradient(circle, rgba(201,168,76,0.22) 0, transparent 68%);
     pointer-events: none;
   }
+
   .close h2 {
     font-family: var(--font-grotesk);
     font-weight: 600;
@@ -549,12 +726,14 @@
     margin: 0 auto;
     position: relative;
   }
+
   .close h2 em {
     font-family: var(--font-flourish);
     font-style: italic;
     font-weight: 500;
     color: var(--amber);
   }
+
   .close p {
     margin: 20px auto 0;
     max-width: 50ch;
@@ -563,6 +742,7 @@
     line-height: 1.7;
     position: relative;
   }
+
   .cta {
     display: inline-flex;
     align-items: center;
@@ -580,12 +760,12 @@
     transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
     box-shadow: 0 4px 24px rgba(201,168,76,0.38);
   }
+
   .cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(201,168,76,0.52);
   }
 
-  /* ── Footer ── */
   footer {
     background: var(--navy-deep);
     color: rgba(255,255,255,0.48);
@@ -593,6 +773,7 @@
     font-family: var(--font-grotesk);
     font-size: 13px;
   }
+
   footer .wrap {
     display: flex;
     justify-content: space-between;
@@ -600,48 +781,83 @@
     gap: 10px;
   }
 
-  /* ── Responsive ── */
   @media (max-width: 820px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-meter-wrap { margin-top: 0; }
-    .truths { grid-template-columns: 1fr; }
-    .col:first-child { border-right: none; border-bottom: 1px solid var(--hairline); }
-    .cards { grid-template-columns: 1fr; }
-    .row { grid-template-columns: 96px 1fr 52px; gap: 10px; }
-    .row .num { font-size: 20px; }
-    .nav-links { display: none; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-meter-wrap {
+      margin-top: 0;
+    }
+
+    .truths {
+      grid-template-columns: 1fr;
+    }
+
+    .col:first-child {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .cards,
+    .shot-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .row {
+      grid-template-columns: 96px 1fr 52px;
+      gap: 10px;
+    }
+
+    .row .num {
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .mrow {
+      grid-template-columns: 1fr;
+    }
   }
+
   @media (prefers-reduced-motion: reduce) {
-    .fill { transition: none; }
-    .cta { transition: none; }
-    .card { transition: none; }
-    .progress span { transition: none; }
+    .fill,
+    .cta,
+    .card,
+    .progress span {
+      transition: none;
+    }
   }
 </style>
+
 </head>
+
 <body>
 
-<!-- Reading progress bar -->
 <div class="progress"><span id="prog-bar"></span></div>
 
-<!-- Nav -->
 <nav class="site-nav">
   <div class="site-nav-inner">
-    <a class="brand-mark" href="#">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAAA6CAYAAACNkdpoAAAKpGlDQ1BJQ0MgUHJvZmlsZQAASImVlgdUk8kWx+f70hst9Bp6E6QTQErooUivohKSEEKJMRBU7Ii4giuKiAhYQKUquCpF1gKIYlsUFOwuyKKirosFUbG8DzgEd9957513z5ncX+53586dOTPn/AGg4FlCYSosA0CaIEMU6uNOi46JpeFeACxQA9LACgAWO13ICA4OAIjN+r/bhwEATflbZlO1/v37fzVZDjedDQAUjHACJ52dhvApZDxhC0UZAKBKkLjuigzhFJ9BWF6ENIjwzSnmzfAfU5wwwx+nc8JDPQBAkwHAk1ksEQ8AsjISp2WyeUgdMh1hCwGHL0A4CWGXtLRlHIRrEDZCcoQIT9WnJ/xQh/e3mgmSmiwWT8Ize5k2vCc/XZjKWvV/Hsf/trRU8ewaBmBqAyLfUMQTkTO7m7LMX8KChIVBs8znTOdPc5LYN2KW2ekesbPMYXn6S+amLgyY5US+N1NSJ4MZPsvcdK+wWRYtC5WslSjyYMwySzS3rjglQhJP4jIl9bOSwqNmOZMfuXCW01PC/OdyPCRxkThU0j9X4OM+t663ZO9p6T/sl8+UzM1ICveV7J011z9XwJirmR4t6Y3D9fSay4mQ5Asz3CVrCVODJfncVB9JPD0zTDI3A7mQc3ODJWeYzPILnmXgDxjIe7OfenMZ3JUZUxvwWCZcJeLzkjJoDORlcWlMAdt8Hs3KwsoOgKl3OnMN3t2dfn+QIn4ulrYZAJtsJOg3F0t0BKAdudsyR+ZiukoAkKQA6HBmi0WZMzH01A8G6UoayAMVoAl0gREwQ/qyA07ADXgBPxAEwkEMWALYIAmkARFYAdaAjSAX5IMdYDcoBQfAIVADjoEToAWcAR3gErgGboJ+8AAMghHwEoyBD2ASgiAcRIGokAqkBelDppAVRIdcIC8oAAqFYqB4iAcJIDG0BtoE5UOFUClUAdVCv0CnoQ7oCtQL3YOGoFHoLfQZRsFkWB7WgA3g+TAdZsD+cDi8GObBy+EsOAfeDpfAlfBRuBnugK/B/fAg/BIeRwEUCaWI0kaZoegoD1QQKhaViBKh1qHyUMWoSlQDqg3VjbqFGkS9Qn1CY9FUNA1thnZC+6Ij0Gz0cvQ69DZ0KboG3YzuQt9CD6HH0N8wFIw6xhTjiGFiojE8zApMLqYYU4VpwlzE9GNGMB+wWKwi1hBrj/XFxmCTsaux27D7sI3Ydmwvdhg7jsPhVHCmOGdcEI6Fy8Dl4vbijuLO4/pwI7iPeBJeC2+F98bH4gX4bHwxvg5/Dt+Hf4afJMgQ9AmOhCACh7CKUEA4TGgj3CCMECaJskRDojMxnJhM3EgsITYQLxIfEt+RSCQdkgMphMQnbSCVkI6TLpOGSJ/IcmQTsgc5jiwmbydXk9vJ98jvKBSKAcWNEkvJoGyn1FIuUB5TPkpRpcylmFIcqfVSZVLNUn1Sr6UJ0vrSDOkl0lnSxdInpW9Iv5IhyBjIeMiwZNbJlMmclrkjMy5LlbWUDZJNk90mWyd7Rfa5HE7OQM5LjiOXI3dI7oLcMBVF1aV6UNnUTdTD1IvUEXmsvKE8Uz5ZPl/+mHyP/JiCnIKNQqTCSoUyhbMKg4ooRQNFpmKqYoHiCcUBxc9KGkoMJa7SVqUGpT6lCWU1ZTdlrnKecqNyv/JnFZqKl0qKyk6VFpVHqmhVE9UQ1RWq+1Uvqr5Sk1dzUmOr5amdULuvDqubqIeqr1Y/pH5dfVxDU8NHQ6ixV+OCxitNRU03zWTNIs1zmqNaVC0XLb5WkdZ5rRc0BRqDlkoroXXRxrTVtX21xdoV2j3akzqGOhE62TqNOo90ibp03UTdIt1O3TE9Lb1AvTV69Xr39Qn6dP0k/T363foTBoYGUQZbDFoMnhsqGzINswzrDR8aUYxcjZYbVRrdNsYa041TjPcZ3zSBTWxNkkzKTG6YwqZ2pnzTfaa98zDzHOYJ5lXOu2NGNmOYZZrVmw2ZK5oHmGebt5i/nq83P3b+zvnd879Z2FqkWhy2eGApZ+lnmW3ZZvnWysSKbVVmdduaYu1tvd661fqNjakN12a/zV1bqm2g7RbbTtuvdvZ2IrsGu1F7Pft4+3L7O3R5ejB9G/2yA8bB3WG9wxmHT452jhmOJxz/cjJzSnGqc3q+wHABd8HhBcPOOs4s5wrnQReaS7zLQZdBV21Xlmul6xM3XTeOW5XbM4YxI5lxlPHa3cJd5N7kPuHh6LHWo90T5enjmefZ4yXnFeFV6vXYW8eb513vPeZj67Pap90X4+vvu9P3DlODyWbWMsf87P3W+nX5k/3D/Ev9nwSYBIgC2gLhQL/AXYEPF+ovFCxsCQJBzKBdQY+CDYOXB/8agg0JDikLeRpqGbomtDuMGrY0rC7sQ7h7eEH4gwijCHFEZ6R0ZFxkbeRElGdUYdRg9PzotdHXYlRj+DGtsbjYyNiq2PFFXot2LxqJs43LjRtYbLh45eIrS1SXpC45u1R6KWvpyXhMfFR8XfwXVhCrkjWewEwoTxhje7D3sF9y3DhFnFGuM7eQ+yzRObEw8TnPmbeLN5rkmlSc9IrvwS/lv0n2TT6QPJESlFKd8j01KrUxDZ8Wn3ZaICdIEXQt01y2clmv0FSYKxxc7rh89/Ixkb+oKh1KX5zemiGPCKLrYiPxZvFQpktmWebHFZErTq6UXSlYeX2Vyaqtq55leWcdWY1ezV7duUZ7zcY1Q2sZayvWQesS1nWu112fs35kg8+Gmo3EjSkbf8u2yC7Mfr8palNbjkbOhpzhzT6b63OlckW5d7Y4bTnwE/on/k89W6237t36LY+TdzXfIr84/8s29rarP1v+XPLz9+2J23sK7Ar278DuEOwY2Om6s6ZQtjCrcHhX4K7mIlpRXtH73Ut3Xym2KT6wh7hHvGewJKCkda/e3h17v5QmlfaXuZc1lquXby2f2MfZ17ffbX/DAY0D+Qc+H+QfvFvhU9FcaVBZfAh7KPPQ08ORh7uP0I/UVqlW5Vd9rRZUD9aE1nTV2tfW1qnXFdTD9eL60aNxR28e8zzW2mDWUNGo2Jh/HBwXH3/xS/wvAyf8T3SepJ9sOKV/qryJ2pTXDDWvah5rSWoZbI1p7T3td7qzzamt6VfzX6vPaJ8pO6twtuAc8VzOue/ns86PtwvbX3XwOoY7l3Y+uBB94XZXSFfPRf+Lly95X7rQzeg+f9n58pkrjldOX6Vfbblmd635uu31pt9sf2vqsetpvmF/o/Wmw8223gW95/pc+zpued66dJt5+1r/wv7egYiBu3fi7gze5dx9fi/13pv7mfcnH2x4iHmY90jmUfFj9ceVvxv/3jhoN3h2yHPo+pOwJw+G2cMv/0j/48tIzlPK0+JnWs9qn1s9PzPqPXrzxaIXIy+FLydf5f4p+2f5a6PXp/5y++v6WPTYyBvRm+9vt71TeVf93uZ953jw+OMPaR8mJ/I+qnys+UT/1P056vOzyRVfcF9Kvhp/bfvm/+3h97Tv34UsEWtaCqCQAScmAvC2GgBKDABURBcTF83o6GmDZrT/NIH/xDNae9oQ5VK3AYBQNwCCkHEQYb12RIMgPhj5H+4GYGtryZjVvNP6fFqbIIpS+n58MGbryMGwDeAfNqPdf+j7nx5MVbUB//T/AqUiAdDWOeP5AAAAVmVYSWZNTQAqAAAACAABh2kABAAAAAEAAAAaAAAAAAADkoYABwAAABIAAABEoAIABAAAAAEAAACNoAMABAAAAAEAAAA6AAAAAEFTQ0lJAAAAU2NyZWVuc2hvdAg5RQkAAAHVaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjU4PC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjE0MTwvZXhpZjpQaXhlbFhEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlVzZXJDb21tZW50PlNjcmVlbnNob3Q8L2V4aWY6VXNlckNvbW1lbnQ+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgqkwjaXAAAQM0lEQVR4Ae1bCXCV1Rk92feEJBACISGBBMImIKAgFhUZUautShHFQnFwaauM49LRkVqruBS1M9W6AYKopUURtSwiKoiyhJoCErAgBMKSQPadbC9Lz7mPF5+BhDzn10z7/ju89/7lrt937vmWG3yixt/dArvYEvBAAr4e1LWr2hIwErBBYwPBYwnYoPFYZHYDGzQ2BjyWgA0aj0VmN7BBY2PAYwnYoPFYZHYDGzQ2BjyWgA0aj0VmN7BBY2PAYwnYoPFYZHYDGzQ2BjyWgA0aj0VmN7BBY2PAYwnYoPFYZHYDGzQ2BjyWQJeBxtcHCPT3gb8fL+zyPyUB/66arR9Rc8dPuqN/XBAqappwrLQBueUO5JU5kF/pQJ2jGbUNzWi2/66wq1TU7rhdBhpHUwve2VGGl25Owg0jwyDmEUCa+FXraMGevFo8uuoEDhbU2cBpV31d86LLzJOWW1jZiPtW5KKgygExTwBNVXCAL6JD/XBxajhen9UXPaP84WNbsK5BRzujdiloNKfmlhZU151phsQ8STFBWDorBX2iA23gtKPArnjsY8X/RggL8sWMsTHoGRnQ4RqKqxvx1vZSjE8Nw+i+oTRJPmhobEHWiVrIH56UHonLB0UiKsTPmCt1JpN1qLAetyw+bPwd28XpUMQ/yktLfBqZlCnnRyM9PrhDRsim8t/dUY4JaRG4+YIY+JPnSDQGGPkVDuzOrcWLnxVi4sAIjCKogthvI32fpNhA/HlqIn697JhxmoMC/REUGIDYbuEEXSOqqutwqraedZvZX+dg5e/ni2D24e/vhwZHo/mEBAfSTPqinve1dQ0/igLaDuLHeYUEBTCypGrk53HXdOV82s5P95aARi6HWMNXNoU6K6tpZPRzpvIKqxrRSCGcqm9GASMkPzdnRT7NmORQXErArNxZhv10gK8f0Q1Lt5WYeV8yIAK/GheLjw/74JfXjMfPLxuBMCpZGKmuqceSDzbj9VVbUVldawRtGnXwFRjgjyWP3Yr0fr3wl2WfYN2WvXjrydsQFx2BZ9/4CG+tyeig9Q/3KiwkCK89OgtDUxOMTB2NTXiTc3l26bofblAPe7YENGZMIYelgcxw79u52JJd7Xzg9i3/Re/nf5SP5z4u0EZqLcKPmOqNW5Np6mJxtKQBd5JZMthPZLAfDhfVI+N4C5Y9fQfSkuK4C50AVQfRkaG4b+ZkXDQiFTPnLkZt/blZwpeM0o3twqkkMY52d2RYMMJDgxAZHto6rx/7QvMZPqAPBB6xpg/XOXFM+v8naFwA0EIbaCaUZ2lbXNyjcFtmx1Wk//ioAMyfkoDoMCeOaxqa8E2+M9zuHR2AfnGhSEhPR//EHmzmg5eWb8TmnQeMwm+fMgHjR6RhxMBEjBrcF1t2HXR1/T/1K9OY1rcnQsmgMrfbsw5jwqgBNMNhSO7dHUdPlnTa/P6QC7eEaaR0V/GnmRmWEGKo1fVMv/V0ePcTBKWnGs3jbyEDhAX64unrEwzTyMLlFNdj9ptHUUJzpqL+I0L9MXH8ULPz9mbn4qW3NxqzJJOYlZ2HzGVzjZ/TnX6O6ss/mXzRUEweNwTpKb2Qk1eE1V9kYfOOAygpP5MFzUBtvrTLR6Yn4bYbfoIh/RLgaGoyQH11xSYUlVUZMyjfaNzwVEyZNMrULSipxKL3vsAgjjmAAHjn40wDYplvzeOOX1yC89L6sG0ztu0+ZOoezy81fQUE+GHmNePMLHLyirGQ/Ywb3p/MF4KEuG4GNAH0wWZfz/n0740NX+7j82jccPn5aOJG3fCv/Xhvww4cPFZg1n/3tIlIjI/B2i1ZGDEg0chD/tu6rXvxwcadpr82S+7UrSWgcR9JxwIPX93L/ZG5lh8zc0kOMg47geCqEELA/PHa3piYHmFyNar3yD9PIJcZYhewkhl6x0UEoA8FJybbfyTfOK66biJjlVeewjNL10OAOXKiBBFhIXju/htxJUGjonr9Enrg0tHp3L2HcPvjb5ixXHM426/AeBHB8MrcGegWEeKcCyeUnhxvnt/66BIUlVYZsPzhzmtp1oLRQn+tL5U0alBfMmmTYYzdB3Px5Z4cJPfpbnyo+Nio1uH69YnD2GH9cNNDC1FWccqw5ujByWa+hwjyg0cLUMrncTEMDPg8g3MXSCeNHYwxQ5Jx8cg0xESGcW4t3KS+BGk8rr1kOGb/8XXT7oqLhmBAUk+MH5mK7lHhrfXSU+JxHX3CWY8swTECVvLxpFiWp3GRjcZXGF3DIwD3T30jzZWr0ukZCmDTGUVNHR39LWBW5WHzwervZIFlzhR2+ykuZ/+NdA716ypyFl8m8zy+YBWyqKSfXTrCAEZKXL/ta7xIU7bmi91GOBL0U3OmQLu6oxISFIgXHpxuAJN9vAjL1m43rFFb78Bg7vJpk8cgqVcs7p1xBX2hEKOkBSs/x1+Xb8BhKlw+iZhKRVHeG/Nmo3ePbigjwOXYLl//Jd+0YABB+MRd15v5nEdfJjTE6dzvOZhnfLOvD+URKH5c0/DT/Tn7lCmLiQrDRrLN88s+xTufZBqg9ukZjTnTLzdtNLaiMQFm3dY9pt77ZBhl3WXuZpNB1Y+nxRKmMctwroUU3oLb3jyCDfuqzpiLm57Nu7H9wvDglfEmE6yFLM8swQe7yk0f7o0//k8lMo424OZZLQh3f+F2LcFKR3Jqf0G61u7Zvucw5jy9jCGrg45uIHp2j8IFQ1MwNC0BUaT89ooEKZaRUtRpcXkV6hscEDiPF5QiNTEOF9OH2rXvGOJjI003Ux54GTm5RWbcV97ZhN0rHjPOtV5qZ0txKkfol8g01Te0IK+oHEk9Y6jAWAOy9OReZv5NfP9JxtdUbjMOsc/JZD0xpXwdpRVUtD75OLMfW2quZbYKSysx56bLMeH8AfiT34emnoKPAzRXv3nyLXMfwFC+hoHCL68ei6vGD8MTC9fw7Ma86vSXJaDRaKcxYwhA62oLEPcZqe7AXsF4Zgp3Fs2TgPYewTJ/fYHxfdzruq4lJIeDqxMwGOm4drHeK3z+21O3m8hH/kS0qJgg/Oqb42Qs5W7ITpzUVjrIFxI0Er5A1F4R+Hr1cIJBcx0zJMWYHNU3O5P9yVeQokyCkn5CQXGF8UtUR3MtogJVR0VANizJ6+H0LYYxnBYY1VZzk/mJJUAHMfzXujTGu8/91vQTRuZR0fNrJgzHms93m3ttssy9R0x79eEgk+/af1w1T69NM2eex6w729TTvYC/PyefVz4GqHrmabEMNO4Dy5lVYk7WROynHIxyMvzHI4MmxIb74/kbE3k8QOWzYQmd4zczShAe5GecYldflAVZogVVbCMhaWfJIRxGR1KKV2JPAk5lCH7hsBT2pbMrf1RU1cCHu1eRiN77+DQbBaud+qyjiakjc7RXpPQC+isqul67OQtZB46b+cskCSxfUUE1TACKDXQ/LC0RO/5zhCBtMYwmk2QasA+NJdD6kQ3X0SmVCZWiexAsPZgX2vH1EVQzWhpNP0XP1Uf0aT9KYNG9AKbo8MMte8y8dC9H258ZUpnrQJrb/n0UWbaY9elXRamFIam9jS8kZzmI8nGCmQfD3zOBaQloBAZXUZb3iesSUFXfxIU6d4jrV2H2jMU5uHdSTwwi0yjSkpDCeQzxwk2Jri5af/UuI6caj3xwwghmxaf/NuCQcP4x/w4m5T5lZBGMuxglyBGsrq1DbmEZ1lDJ53FHXzZ6IObe/lNGWptw3cSRGHdeP8NAilYqqmpbx2l7ISVt+yrbCFXgTKH9n8/kWhKZY+oVYwxg5YyfKKqAoqXePaLx8sO3YPlHmag8VWv8Hfk0rpJ9vJDP69CDChtIE/QSzVco2fLpe6YYR/YkWSqG7KjEohzoJ19biy/3HjayEej//MA0pNEkDkpxKl/9ylEfQsa6jz7V4vc246qLh+HumyYattv1zbFW1lO98xkByn9Z+ekO3Mj5T7/yAgP2bVnZBpCueXb21xLQSLkkAsMGwo8YBHCeQzkB5USVHGOZo148uVZRG5XQQD+kdD/TMZXyDhWT2rnwWuZtPvvXPmRyVyrCkAAXPjLTtNf4DrKOnEu9P3qyFFfTXitcnsns8a+uHW/2nVLye+lYzlu02qTmxSLOjxiF8+F7janfmtoGPLl4LebO/qnJzm59/aHWseTf5BaUETRlBNNHdGSvM8q/a9plHMfZXg6zEoYqhQTWvAWrMY/15A+te/Ee81xj1bPeIYLqlqsuNIyl/MzOfUexl46w3ovF/v7hdjx658/InHGGMdRY89akf3vjZWbTSMKqX1VThwXvfv4d30eM9zDXMfe2awyza33lZOPXCDb5V54WS0BTx2hp0zdVyC6sQwAVrLCQODDUqSAlwNz7mCMEZYQL+CcROcz4smqHRXLRcYMREGsq/JzO8PR+Zn+1s5TBVR3t7oUrv8AK5kSMs5pfgmkPLsCz9041wIlgPZkSmbf7nluO/OJKo1ApXg50RXWNaad7KU0CldlRxNRIX+HXUy9hFBVqciElFdW4+09/RzadSwn/nxt3EUClmHPzJCQychGjvMhI7vdUUkpCd7M+zWn151+ZMR7g3JWJVv9azxOL1mDLzoOYdOFgOtllJv8jFhMAVNR2U+Z+zGD+RqZKZk+/MjXvf7bLsJMYR7viZHE5HnphpQGcQnEVmUWtQ854GsNvzVnO/D3P/APHKI/Tw5i6nf2y5JRbyjd+ixsKWvFw+kI/nK9hI1UTbbbW6WC2OquSWVNbFQlMu0/Or44PBKiyyhrDHBKkC2Cqpzqy9YqCKngmVVvnaM3vaHwBRvOWYCVMHV5qbrqXslQ0lsJggaaBjrj8pfqGRqN0vVc/MmGKStSXlK1xP3n1ftPm8UWrsOT9LWZHy9Qo6SiFaoxSAlDjaN5qo/BYYFICzl2Zei5fxDXeUobvygW9vT4T8xauNuvTuouZtJR/o75jae6WP3OnYbZFZJTneb4mwDXR/JUQrK56plMPvyxhGim0mYpVFNT54kndb3uVcFyn0tWk4vaK6smM6FPF3d+2CCQNzd9NNDbRfLYtUqr8n/Z8IAHhs0W/M9lo05ag8+czsZsAcJJ+j8YSCKRMzeVs89FJNtrxzQWqmibneZrL5Gks9SkGFTt2VCQL1TlXvY76cH9nCWjcO/S2a8No/FMNJQu/5U7+YRmVpOOKPQcUKX2/DXI2WSqKVPQnAHQUAQqwYlbNo6N6ZxvjXM8sMU/nGuT/+b3Mk3wFmTr3oihIPpQUbGURSJX11bGFzr+K+TlbEQMqPaCcVn5JhTmmOFu97/PMBs33kVqbNlLk2YqVDOPev3M4jkkG64jDOlvPve/OXNvmqTNSOkedHwoc7Q3rtHYdwcXZsrP12hunveeen1a115P93GskYIPGa1Rt3UJt0FgnS6/pyQaN16jauoXaoLFOll7Tkw0ar1G1dQu1QWOdLL2mJxs0XqNq6xZqg8Y6WXpNTzZovEbV1i3UBo11svSanmzQeI2qrVuoDRrrZOk1Pdmg8RpVW7dQGzTWydJrerJB4zWqtm6h/wXATSyV/BDMWAAAAABJRU5ErkJggg==" alt="EZCollegeApp">
+    <a class="brand-mark" href="/">
+      <span class="brand-logo">E</span>
+      <span>EZCollegeApp</span>
     </a>
-    <ul class="nav-links">
-      <li><a href="#paths">Counselor or not</a></li>
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#math">The math</a></li>
-      <li><a href="#close">Get started</a></li>
-    </ul>
+
+```
+<ul class="nav-links">
+  <li><a href="#paths">Counselor or not</a></li>
+  <li><a href="#how">How it works</a></li>
+  <li><a href="#math">The math</a></li>
+  <li><a href="#close">Get started</a></li>
+</ul>
+```
+
   </div>
 </nav>
 
-<!-- Hero -->
 <header class="hero">
-  <!-- star field -->
   <div class="stars" aria-hidden="true">
     <i style="top:8%;left:12%"></i><i style="top:15%;left:34%"></i><i style="top:22%;left:55%"></i>
     <i style="top:6%;left:72%"></i><i style="top:31%;left:88%"></i><i style="top:44%;left:6%"></i>
@@ -649,69 +865,129 @@
     <i style="top:78%;left:61%"></i><i style="top:88%;left:41%"></i><i style="top:93%;left:85%"></i>
     <i style="top:3%;left:91%"></i><i style="top:37%;left:29%"></i><i style="top:58%;left:16%"></i>
   </div>
+
   <div class="hero-inner">
     <div class="hero-copy">
       <div class="hero-pill">Already booked a counselor? Keep them.</div>
-      <h1>Your counselor helps get you <span style="color:#fff;font-style:normal">3–5</span> applications.<br><span class="keep">We expand that to 10–15 dream schools.</span></h1>
-      <p class="hero-sub">A great counselor — or your own careful work — can carry <strong>3 to 5</strong> serious applications before time and energy run out. EZCollegeApp takes that work as the <strong>reference</strong> and expands it, so the same foundation reaches <strong>10 to 15</strong> schools instead. No counselor yet? You're not behind — the product covers that ground too.</p>
+
+```
+  <h1>
+    Your counselor helps get you <span style="color:#fff;font-style:normal">3–5</span> applications.<br>
+    <span class="keep">We expand that to 10–15 dream schools.</span>
+  </h1>
+
+  <p class="hero-sub">
+    A great counselor — or your own careful work — can carry <strong>3 to 5</strong>
+    serious applications before time and energy run out. EZCollegeApp takes that work as
+    the <strong>reference</strong> and expands it, so the same foundation reaches
+    <strong>10 to 15</strong> schools instead. No counselor yet? You're not behind —
+    the product covers that ground too.
+  </p>
+</div>
+
+<div class="hero-meter-wrap">
+  <div class="hero-meter-frame" id="meter">
+    <div class="meter-head">
+      <div class="t">Dream schools you can actually finish</div>
+      <div class="cap">// same counselor · same hours</div>
     </div>
 
-    <!-- Meter moved into hero right column -->
-    <div class="hero-meter-wrap">
-      <div class="hero-meter-frame" id="meter">
-        <div class="meter-head">
-          <div class="t">Dream schools you can actually finish</div>
-          <div class="cap">// same counselor · same hours</div>
-        </div>
-        <div class="bar">
-          <div class="row">
-            <div class="lbl">Counselor or you, alone<small>human judgment, limited hours</small></div>
-            <div class="track"><div class="fill counselor" data-w="33%"></div></div>
-            <div class="num">3–5</div>
-          </div>
-          <div class="row">
-            <div class="lbl">That same work + EZCollegeApp<small>your foundation, expanded</small></div>
-            <div class="track"><div class="fill amp" data-w="100%"></div></div>
-            <div class="num">10–15<span> →</span></div>
-          </div>
-        </div>
-        <div class="meter-foot">The green is the foundation — your counselor's strategy and voice, or the work you did yourself. <b>The orange is the dream-school applications that foundation now reaches.</b></div>
+    <div class="bar">
+      <div class="row">
+        <div class="lbl">Counselor or you, alone<small>human judgment, limited hours</small></div>
+        <div class="track"><div class="fill counselor" data-w="33%"></div></div>
+        <div class="num">3–5</div>
+      </div>
+
+      <div class="row">
+        <div class="lbl">That same work + EZCollegeApp<small>your foundation, expanded</small></div>
+        <div class="track"><div class="fill amp" data-w="100%"></div></div>
+        <div class="num">10–15<span> →</span></div>
       </div>
     </div>
+
+    <div class="meter-foot">
+      The green is the foundation — your counselor's strategy and voice, or the work you did yourself.
+      <b>The orange is the dream-school applications that foundation now reaches.</b>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 </header>
 
-<!-- Band -->
-<section class="band">
+<section class="article-body" style="padding-bottom:0;">
   <div class="wrap">
-    <div class="section-rule"></div>
-    <h2>Before, you couldn't write that many essays or fill that many forms. <em>Now you can.</em></h2>
-    <p>The ceiling was never your ambition. It was hours. Every supplemental essay, every Why-Major prompt, every repeated form field — each one spends time you don't have during application season. EZCollegeApp takes the reviewed work you've already done and reuses it, so the limit moves.</p>
+    <div class="shot">
+      <img src="/assets/images/first-page.jpg" alt="EZCollegeApp product overview page">
+      <div class="shot-caption">
+        EZCollegeApp turns the college application process into one connected workspace — context, strategy, essays, autofill, and review.
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Article body -->
+<section class="band">
+  <div class="wrap">
+    <div class="section-rule"></div>
+
+```
+<h2>
+  Before, you couldn't write that many essays or fill that many forms.
+  <em>Now you can.</em>
+</h2>
+
+<p>
+  The ceiling was never your ambition. It was hours. Every supplemental essay,
+  every Why-Major prompt, every repeated form field — each one spends time you
+  don't have during application season. EZCollegeApp takes the reviewed work
+  you've already done and reuses it, so the limit moves.
+</p>
+```
+
+  </div>
+</section>
+
 <div class="article-body">
 
-  <!-- Two truths -->
   <div class="wrap">
     <div class="truths">
       <div class="col keep">
         <div class="tag">Your foundation — keep it</div>
         <h3>Counselor work, or your own, is the reference</h3>
-        <p>If you've already booked a counselor, keep them. Their strategy, school fit, and read on your story become the reference EZCollegeApp builds from. The work you did yourself counts exactly the same way.</p>
-        <p>Either way, that 3–5 you've finished isn't the ceiling. It's the seed we expand.</p>
-      </div>
-      <div class="col amp-col">
-        <div class="tag">What gets expanded</div>
-        <h3>From 3–5 to 10–15 dream schools</h3>
-        <p>Adapting essays for a tenth Why-School. Filling the same forms again. Drafting supplements for dream schools you'd have dropped for lack of time.</p>
-        <p>This is the volume that capped you. With your foundation as the reference, it's what we expand.</p>
-      </div>
-    </div>
+
+```
+    <p>
+      If you've already booked a counselor, keep them. Their strategy, school fit,
+      and read on your story become the reference EZCollegeApp builds from. The work
+      you did yourself counts exactly the same way.
+    </p>
+
+    <p>
+      Either way, that 3–5 you've finished isn't the ceiling. It's the seed we expand.
+    </p>
   </div>
 
-  <!-- Paths -->
+  <div class="col amp-col">
+    <div class="tag">What gets expanded</div>
+    <h3>From 3–5 to 10–15 dream schools</h3>
+
+    <p>
+      Adapting essays for a tenth Why-School. Filling the same forms again.
+      Drafting supplements for dream schools you'd have dropped for lack of time.
+    </p>
+
+    <p>
+      This is the volume that capped you. With your foundation as the reference,
+      it's what we expand.
+    </p>
+  </div>
+</div>
+```
+
+  </div>
+
   <section style="padding: 64px 0 0;" id="paths">
     <div class="wrap">
       <div class="sec-head">
@@ -719,51 +995,112 @@
         <div class="section-rule"></div>
         <h2>Counselor or not, you start in a <em>strong position.</em></h2>
       </div>
-      <div class="cards" style="grid-template-columns:1fr 1fr">
-        <div class="card">
-          <div class="x">↗</div>
-          <h4>You already have a counselor</h4>
-          <p>Keep them. Their work is the reference we expand — same strategy and voice, now reaching 10–15 dream schools instead of 3–5.</p>
-        </div>
-        <div class="card">
-          <div class="x">★</div>
-          <h4>You don't have a counselor yet</h4>
-          <p>No need to rush to hire one. EZCollegeApp covers the ground a human counselor would — building context, weighing fit, guiding strategy, and reviewing your work — so you're not left short. Add a counselor later if you want; the product fills the gap until then, and beyond.</p>
-        </div>
-      </div>
+
+```
+  <div class="cards" style="grid-template-columns:1fr 1fr">
+    <div class="card">
+      <div class="x">↗</div>
+      <h4>You already have a counselor</h4>
+      <p>
+        Keep them. Their work is the reference we expand — same strategy and voice,
+        now reaching 10–15 dream schools instead of 3–5.
+      </p>
     </div>
+
+    <div class="card">
+      <div class="x">★</div>
+      <h4>You don't have a counselor yet</h4>
+      <p>
+        No need to rush to hire one. EZCollegeApp covers the ground a human counselor would —
+        building context, weighing fit, guiding strategy, and reviewing your work — so you're
+        not left short. Add a counselor later if you want; the product fills the gap until then,
+        and beyond.
+      </p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <img src="/assets/images/admissions-team.jpg" alt="EZCollegeApp admissions team and AI counselor interface">
+    <div class="shot-caption">
+      AI Counselor helps students prepare better questions, clarify requirements, and make counselor conversations more productive.
+    </div>
+  </div>
+</div>
+```
+
   </section>
 
-  <!-- Expansion model -->
   <section style="padding: 64px 0 0;" id="how">
     <div class="wrap">
       <div class="sec-head">
         <div class="kick">The expansion model</div>
         <div class="section-rule"></div>
         <h2>The same 3–5 you've finished <em>becomes 10–15.</em></h2>
-        <p class="lede">EZCollegeApp doesn't add a person to your team and doesn't replace your counselor. It takes the foundation you've already built and expands how many dream-school applications it can reach.</p>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <div class="x">×2</div>
-          <h4>Essays you can adapt</h4>
-          <p>Strong material gets repurposed across prompts with your voice intact, so more schools get a real, specific essay instead of a rushed one.</p>
-        </div>
-        <div class="card">
-          <div class="x">×3</div>
-          <h4>Forms you can clear</h4>
-          <p>Reviewed profile context fills repeated fields across applications. You review, edit, confirm — instead of retyping from scratch every time.</p>
-        </div>
-        <div class="card">
-          <div class="x">+</div>
-          <h4>Schools you'd have cut</h4>
-          <p>Well-fit reach and target schools that fell off the list for lack of hours become applications you can actually submit.</p>
-        </div>
+
+```
+    <p class="lede">
+      EZCollegeApp doesn't add a person to your team and doesn't replace your counselor.
+      It takes the foundation you've already built and expands how many dream-school
+      applications it can reach.
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="x">×2</div>
+      <h4>Essays you can adapt</h4>
+      <p>
+        Strong material gets repurposed across prompts with your voice intact, so more
+        schools get a real, specific essay instead of a rushed one.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="x">×3</div>
+      <h4>Forms you can clear</h4>
+      <p>
+        Reviewed profile context fills repeated fields across applications. You review,
+        edit, confirm — instead of retyping from scratch every time.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="x">+</div>
+      <h4>Schools you'd have cut</h4>
+      <p>
+        Well-fit reach and target schools that fell off the list for lack of hours become
+        applications you can actually submit.
+      </p>
+    </div>
+  </div>
+
+  <div class="shot-grid">
+    <div class="shot-card">
+      <img src="/assets/images/essay-revision.png" alt="EZCollegeApp essay revision interface">
+      <div class="shot-caption">
+        Essay revision turns existing writing into stronger, school-specific applications.
       </div>
     </div>
+
+    <div class="shot-card">
+      <img src="/assets/images/manage-college-list.jpg" alt="EZCollegeApp college list management interface">
+      <div class="shot-caption">
+        College list management helps students decide which additional schools are worth completing.
+      </div>
+    </div>
+
+    <div class="shot-card">
+      <img src="/assets/images/autofill.png" alt="EZCollegeApp autofill interface">
+      <div class="shot-caption">
+        Autofill reduces repeated form work so the student can finish more applications with review.
+      </div>
+    </div>
+  </div>
+</div>
+```
+
   </section>
 
-  <!-- Math -->
   <section style="padding: 64px 0 0;" id="math">
     <div class="wrap">
       <div class="sec-head">
@@ -771,51 +1108,131 @@
         <div class="section-rule"></div>
         <h2>Where the extra applications <em>come from</em></h2>
       </div>
-      <div class="math">
-        <div class="mrow">
-          <div class="n">01</div>
-          <div>
-            <h4>Your existing work becomes the reference</h4>
-            <p>The applications your counselor shaped — or the ones you finished yourself — are read in as the reference: the strategy, the voice, the reviewed profile. Everything we expand starts from that, not from a blank page.</p>
-          </div>
-        </div>
-        <div class="mrow">
-          <div class="n">02</div>
-          <div>
-            <h4>Repeated work stops being repeated</h4>
-            <p>Address, school codes, activity lists, family details — the fields that appear on every application get reused with review, not re-entered by hand each time.</p>
-          </div>
-        </div>
-        <div class="mrow">
-          <div class="n">03</div>
-          <div>
-            <h4>Strong writing travels</h4>
-            <p>A solid personal statement or Why-Major draft becomes a starting point you adapt per prompt, so the marginal cost of one more well-fit school drops sharply.</p>
-          </div>
-        </div>
-        <div class="mrow">
-          <div class="n">04</div>
-          <div>
-            <h4>Review stays in the loop</h4>
-            <p>Nothing submits itself. You accept, edit, or reject every suggestion — which is exactly why the extra volume stays at a quality your counselor would sign off on.</p>
+
+```
+  <div class="math">
+
+    <div class="mrow">
+      <div class="n">01</div>
+      <div>
+        <h4>Your existing work becomes the reference</h4>
+        <p>
+          The applications your counselor shaped — or the ones you finished yourself —
+          are read in as the reference: the strategy, the voice, the reviewed profile.
+          Everything we expand starts from that, not from a blank page.
+        </p>
+
+        <div class="shot">
+          <img src="/assets/images/manage-college-list.jpg" alt="EZCollegeApp college list as application reference">
+          <div class="shot-caption">
+            The college list becomes the strategy map: what is already finished, what can be expanded, and which schools deserve more effort.
           </div>
         </div>
       </div>
     </div>
+
+    <div class="mrow">
+      <div class="n">02</div>
+      <div>
+        <h4>Repeated work stops being repeated</h4>
+        <p>
+          Address, school codes, activity lists, family details — the fields that appear on every
+          application get reused with review, not re-entered by hand each time.
+        </p>
+
+        <div class="shot-grid">
+          <div class="shot-card">
+            <img src="/assets/images/autofill.png" alt="EZCollegeApp autofill support">
+            <div class="shot-caption">
+              Repeated form fields can be filled from reviewed profile context.
+            </div>
+          </div>
+
+          <div class="shot-card">
+            <img src="/assets/images/activity-autofill.png" alt="EZCollegeApp activity autofill support">
+            <div class="shot-caption">
+              Activity autofill helps reuse confirmed activity information across applications.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mrow">
+      <div class="n">03</div>
+      <div>
+        <h4>Strong writing travels</h4>
+        <p>
+          A solid personal statement or Why-Major draft becomes a starting point you adapt per prompt,
+          so the marginal cost of one more well-fit school drops sharply.
+        </p>
+
+        <div class="shot-grid">
+          <div class="shot-card">
+            <img src="/assets/images/essay-coach.jpg" alt="EZCollegeApp Essay Coach interface">
+            <div class="shot-caption">
+              Essay Coach helps students turn existing ideas into stronger prompt-specific drafts.
+            </div>
+          </div>
+
+          <div class="shot-card">
+            <img src="/assets/images/essay-revision.png" alt="EZCollegeApp essay revision feedback">
+            <div class="shot-caption">
+              Revision feedback keeps quality high when one essay foundation expands to more schools.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mrow">
+      <div class="n">04</div>
+      <div>
+        <h4>Review stays in the loop</h4>
+        <p>
+          Nothing submits itself. You accept, edit, or reject every suggestion — which is exactly why
+          the extra volume stays at a quality your counselor would sign off on.
+        </p>
+
+        <div class="shot">
+          <img src="/assets/images/forecast97.png" alt="EZCollegeApp admission forecast interface">
+          <div class="shot-caption">
+            Forecast is not a guarantee. It is a planning signal that helps families decide where expansion makes strategic sense.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+```
+
   </section>
 
-  <!-- Closing CTA -->
   <section style="padding: 64px 0 0;" id="close">
     <div class="wrap close-wrap">
       <div class="close">
-        <h2>Already have a counselor? <em>Keep them — and reach 10–15 dream schools.</em></h2>
-        <p>Whether the foundation came from your counselor or your own work, we take it as the reference and expand it. Keep the judgment. Reach the schools you didn't have hours for.</p>
-        <a class="cta" href="#">Expand my applications →</a>
-      </div>
-    </div>
+        <h2>
+          Already have a counselor?
+          <em>Keep them — and reach 10–15 dream schools.</em>
+        </h2>
+
+```
+    <p>
+      Whether the foundation came from your counselor or your own work, we take it as the reference
+      and expand it. Keep the judgment. Reach the schools you didn't have hours for.
+    </p>
+
+    <a class="cta" href="https://ezcollegeapp.com/" target="_blank" rel="noreferrer">
+      Expand my applications →
+    </a>
+  </div>
+</div>
+```
+
   </section>
 
-</div><!-- /article-body -->
+</div>
 
 <footer>
   <div class="wrap">
@@ -825,25 +1242,37 @@
 </footer>
 
 <script>
-  // Progress bar
   const bar = document.getElementById('prog-bar');
+
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
     const pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
     bar.style.transform = 'scaleX(' + pct + ')';
   }, { passive: true });
 
-  // Meter animation on scroll into view
   const meter = document.getElementById('meter');
   const fills = meter.querySelectorAll('.fill');
-  const reveal = () => fills.forEach(f => f.style.width = f.dataset.w);
+
+  const reveal = () => {
+    fills.forEach(f => {
+      f.style.width = f.dataset.w;
+    });
+  };
+
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(x => { if (x.isIntersecting) { reveal(); io.disconnect(); } });
+      entries.forEach(x => {
+        if (x.isIntersecting) {
+          reveal();
+          io.disconnect();
+        }
+      });
     }, { threshold: 0.4 });
-    io.observe(meter);
-  } else { reveal(); }
-</script>
 
+    io.observe(meter);
+  } else {
+    reveal();
+  }
+</script>
 </body>
 </html>
